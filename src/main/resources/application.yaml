@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: caririfest-api
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/caririfest
+    username: mymatheus
+    password: 1321
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
