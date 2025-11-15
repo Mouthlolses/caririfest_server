@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController
 class ClientController(private val clientService: ClientService) {
 
     @PostMapping
-    @Operation(summary = "Criar client", description = "Cria client e retorna os dados do mesmo")
+    @Operation(summary = "Criar cliente", description = "Cria cliente e retorna os dados do mesmo")
     fun createClient(@Valid @RequestBody request: ClientRequest): ClientResponse {
         return clientService.createClient(request)
     }
