@@ -12,3 +12,21 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+
+  mail:
+    host: smtp.seuprovedor.com
+    port: 587
+    username: seu_email@dominio.com
+    password: sua_senha
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+  server:
+    port: 8080
+    address: 0.0.0.0

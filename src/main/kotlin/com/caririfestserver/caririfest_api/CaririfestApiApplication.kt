@@ -9,5 +9,5 @@ import org.springframework.scheduling.annotation.EnableScheduling
 class CaririfestApiApplication
 
 fun main(args: Array<String>) {
-	runApplication<CaririfestApiApplication>(*args)
+    runApplication<CaririfestApiApplication>(*args)
 }

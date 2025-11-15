@@ -31,14 +31,14 @@ data class Client(
 
 
     /**Pedidos feitos por este cliente*/
-    @OneToMany(mappedBy = "clients", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany(mappedBy = "client", cascade = [CascadeType.ALL], orphanRemoval = true)
     val orders: List<Order> = emptyList(),
 
     /**Ingressos associados a este cliente*/
-    @OneToMany(mappedBy = "clients", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany(mappedBy = "client", cascade = [CascadeType.ALL], orphanRemoval = true)
     val tickets: List<Ticket> = emptyList(),
 
     /**Notificações enviadas a este cliente*/
-    @OneToMany(mappedBy = "clients", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany(mappedBy = "client", cascade = [CascadeType.ALL], orphanRemoval = true)
     val notifications: List<Notification> = emptyList()
 )

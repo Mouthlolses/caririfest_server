@@ -37,7 +37,7 @@ data class Order(
     var statusPayment: StatusPayment,
 
     /**Pagamentos associados a este pedido.*/
-    @OneToMany(mappedBy = "orders", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany(mappedBy = "order", cascade = [CascadeType.ALL], orphanRemoval = true)
     val payments: List<Payment> = emptyList(),
 
     /**
@@ -48,6 +48,6 @@ data class Order(
     E o cascade cuida de salvar todos os Tickets junto.
     (sem precisar chamar ticketRepository.save() um a um)
      */
-    @OneToMany(mappedBy = "orders", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany(mappedBy = "order", cascade = [CascadeType.ALL], orphanRemoval = true)
     val tickets: MutableList<Ticket> = mutableListOf()
 )

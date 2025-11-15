@@ -24,7 +24,6 @@ import org.springframework.stereotype.Service
 class NotificationService(
     private val repository: NotificationRepository,
     private val emailService: EmailService,          // Serviço que envia e-mails
-    private val whatsappService: WhatsAppService    // Serviço que envia WhatsApp
 
 ) {
 
