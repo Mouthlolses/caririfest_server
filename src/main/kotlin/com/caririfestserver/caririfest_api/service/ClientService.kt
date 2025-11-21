@@ -40,10 +40,19 @@ class ClientService(private val repository: ClientRepository) {
         return saved.toResponse()
     }
 
+    fun getAllClients(): List<ClientResponse> {
+        return repository.findAll()
+            .map { it.toResponse() }
+    }
+
     fun getClientById(id: Long): ClientResponse {
         val entity = repository.findById(id)
             .orElseThrow { NoSuchElementException("Cliente não encontrado pelo ID $id") }
 
         return entity.toResponse()
+    }
+
+    fun deleteClientById(id: Long) {
+        repository.deleteById(id)
     }
 }
