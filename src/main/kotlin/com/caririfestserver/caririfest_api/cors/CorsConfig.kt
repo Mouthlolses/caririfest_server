@@ -12,18 +12,31 @@ class CorsConfig {
     @Bean
     fun corsConfigurationSource(): CorsConfigurationSource {
 
-        val config = CorsConfiguration()
-
-        config.allowCredentials = true
-        config.allowedOrigins = listOf(
+        // Configuração para o app mobile (emulador e físico) - acesso completo
+        val mobileConfig = CorsConfiguration()
+        mobileConfig.allowCredentials = true
+        mobileConfig.allowedOrigins = listOf(
             "http://10.0.0.161:8080", // Celular físico no WiFi
             "http://10.0.2.2:8080"    // Emulador Android
         )
-        config.allowedHeaders = listOf("*")
-        config.allowedMethods = listOf("*")
+        mobileConfig.allowedHeaders = listOf("*")
+        mobileConfig.allowedMethods = listOf("*")
 
         val source = UrlBasedCorsConfigurationSource()
-        source.registerCorsConfiguration("/**", config)
+        source.registerCorsConfiguration("/**", mobileConfig)
+
+        //----------------------------------------------------//
+
+        // Configuração para web - só alguns métodos permitidos
+        val webConfig = CorsConfiguration()
+        webConfig.allowCredentials = true
+        webConfig.allowedOrigins = listOf(
+            "https://meusite.com"
+        )
+        webConfig.allowedHeaders = listOf("*")
+        webConfig.allowedMethods = listOf("GET") // Somente GET
+        source.registerCorsConfiguration("/**", webConfig)
+
 
         return source
     }
