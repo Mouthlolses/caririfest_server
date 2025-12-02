@@ -1,6 +1,7 @@
 package com.caririfestserver.caririfest_api.model
 
 
+import com.caririfestserver.caririfest_api.annotations.NotEmpty
 import jakarta.persistence.*
 import java.math.BigDecimal
 import java.time.LocalDate
@@ -16,24 +17,24 @@ data class Event(
     var id: Long? = null,
 
     /**Título do Evento*/
-    var title: String,
+    @field:NotEmpty var title: String,
 
     /**Local do Evento*/
-    var local: String,
+    @field:NotEmpty var local: String,
 
     /**Data do Evento*/
-    var date: LocalDate,
+    @field:NotEmpty var date: LocalDate,
 
     /**Hora do Evento*/
-    var time: LocalTime,
+    @field:NotEmpty var time: LocalTime,
 
     /**Valor do ingresso*/
     /**Column com precision para limitar casas decimais*/
     @Column(precision = 10, scale = 2)
-    var price: BigDecimal,
+    @field:NotEmpty var price: BigDecimal,
 
     /**Quantidade de ingressos disponiveis*/
-    var ticketsAvailable: Int,
+    @field:NotEmpty var ticketsAvailable: Int,
 
 
     /**

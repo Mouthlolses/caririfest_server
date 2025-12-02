@@ -26,7 +26,9 @@ spring:
           starttls:
             enable: true
 
-
-  server:
+server:
     port: 8080
     address: 0.0.0.0
+
+stripe:
+    secret: sk_test_51SUVUOQgaqHCARe3XnIQzvveTe11MsO4zOTQr2gPvAwK69AgcEDiq86lELfjGM6sgEqMCvdeYZLTn9s4hMY8kTkv003vCJ4vEk

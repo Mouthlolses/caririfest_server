@@ -1,5 +1,6 @@
 package com.caririfestserver.caririfest_api.model
 
+import com.caririfestserver.caririfest_api.annotations.NotEmpty
 import jakarta.persistence.*
 
 
@@ -12,19 +13,19 @@ data class Client(
     var id: Long? = null,
 
     /**Nome do cliente*/
-    val clientName: String,
+    @field:NotEmpty val clientName: String,
 
     /**Sobrenome do cliente*/
-    val clientLastName: String,
+    @field:NotEmpty val clientLastName: String,
 
     /**Documento do cliente(CPF)*/
-    val clientDoc: String,
+    @field:NotEmpty val clientDoc: String,
 
     /**Email do cliente para recebimento dos ingressos*/
-    val clientEmail: String,
+    @field:NotEmpty val clientEmail: String,
 
     /**Confirmação do email do cliente, é necessario para de fato receber os ingressos*/
-    val clientEmailConfirm: String,
+    @field:NotEmpty val clientEmailConfirm: String,
 
     /**Numero do whatsapp - para recebimento do ingresso, pode ser uma das opções caso cliente preferir*/
     val clientWhatsApp: String,
