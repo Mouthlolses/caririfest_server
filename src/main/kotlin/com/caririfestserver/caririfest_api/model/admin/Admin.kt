@@ -12,16 +12,19 @@ data class Admin(
     val id: Long? = null,
 
     @field:NotEmpty val adminName: String,
+
     @field:NotEmpty val adminLastName: String,
+
     @field:NotEmpty val docAdmin: String,
+
     @field:NotEmpty val adminEmail: String,
+
     @field:NotEmpty val adminEmailConfirm: String,
 
+    @field:NotEmpty val password: String,
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn("event_id")
-    val event: Event
+    @JoinColumn(name = "event_id")
+    val event: Event? = null
 
-
-
-
-    )
+)
