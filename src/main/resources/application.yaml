@@ -3,9 +3,9 @@ spring:
     name: caririfest-api
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/caririfest
-    username: mymatheus
-    password: 1321
+    url: postgresql://postgres:VnctMWKlUcrwBtsRYMHHCqkmZERzQvzQ@yamanote.proxy.rlwy.net:12838/railway
+    username: postgres
+    password: VnctMWKlUcrwBtsRYMHHCqkmZERzQvzQ
     driver-class-name: org.postgresql.Driver
 
   jpa:
