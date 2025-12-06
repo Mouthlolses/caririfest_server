@@ -3,15 +3,11 @@ package com.caririfestserver.caririfest_api.service
 import com.caririfestserver.caririfest_api.model.admin.Admin
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
-class JwtService(
-    @field:Value("\${jwt.secret}")
-    private val secretKey: String
-) {
+class JwtService(private val secretKey: String) {
 
     fun generateToken(admin: Admin): String {
         return Jwts.builder()
