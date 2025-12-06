@@ -3,9 +3,9 @@ spring:
     name: caririfest-api
 
   datasource:
-    url: jdbc:postgresql://yamanote.proxy.rlwy.net:12838/railway
+    url: jdbc:postgresql://centerbeam.proxy.rlwy.net:35489/railway
     username: postgres
-    password: VnctMWKlUcrwBtsRYMHHCqkmZERzQvzQ
+    password: xNrXznXXrNKtDwvDaKhmaLBvHKYZwRKA
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -29,6 +29,9 @@ spring:
 server:
     port: ${PORT:8080}
     address: 0.0.0.0
+
+jwt:
+  secret: "Gq8+4/vhf5hw16G04YBwG6CA4vvPz9l7knM+NtfppfNgpCe83IZysJNxrqL/4EfmBQ15Az0Z41FYm4Oj6dGbcQ=="
 
 stripe:
     secret: sk_test_51SUVUOQgaqHCARe3XnIQzvveTe11MsO4zOTQr2gPvAwK69AgcEDiq86lELfjGM6sgEqMCvdeYZLTn9s4hMY8kTkv003vCJ4vEk

@@ -18,5 +18,4 @@ class AdminController(private val adminService: AdminService) {
         return adminService.createAdmin(request)
     }
 
-
 }
