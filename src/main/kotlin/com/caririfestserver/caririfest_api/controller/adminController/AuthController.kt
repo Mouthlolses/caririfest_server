@@ -14,6 +14,7 @@ class AuthController(private val adminService: AdminService) {
 
     @PostMapping("/login")
     fun login(@RequestBody request: LoginRequest): LoginResponse {
+        println("JWT SECRET = ${System.getenv("JWT_SECRET")}")
         return adminService.login(request)
     }
 }

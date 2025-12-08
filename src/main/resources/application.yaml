@@ -31,7 +31,7 @@ server:
     address: 0.0.0.0
 
 jwt:
-  secret: "Gq8+4/vhf5hw16G04YBwG6CA4vvPz9l7knM+NtfppfNgpCe83IZysJNxrqL/4EfmBQ15Az0Z41FYm4Oj6dGbcQ=="
+  secret: ${JWT_SECRET}
 
 stripe:
     secret: sk_test_51SUVUOQgaqHCARe3XnIQzvveTe11MsO4zOTQr2gPvAwK69AgcEDiq86lELfjGM6sgEqMCvdeYZLTn9s4hMY8kTkv003vCJ4vEk
