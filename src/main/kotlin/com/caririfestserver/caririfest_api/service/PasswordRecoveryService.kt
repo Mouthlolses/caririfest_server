@@ -8,7 +8,7 @@ import com.caririfestserver.caririfest_api.repository.PasswordResetTokenReposito
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
-import java.util.UUID
+import java.util.*
 
 @Service
 class PasswordRecoveryService(
@@ -36,10 +36,17 @@ class PasswordRecoveryService(
 
         val link = "https://seuapp.com/reset-password?token=$rawToken"
 
-        emailService.sendPasswordResetEmail(
-            to = admin.adminEmail,
-            link = link
-        )
+        try {
+            emailService.sendPasswordResetEmail(
+                to = admin.adminEmail,
+                link = link
+            )
+        } catch (ex: Exception) {
+            // LOGA O ERRO (importantíssimo)
+            println("Erro ao enviar email de recuperação: ${ex.message}")
+            ex.printStackTrace()
+
+        }
     }
 
     fun resetPassword(token: String, newPassword: String) {
