@@ -9,7 +9,7 @@ import jakarta.persistence.*
 data class Admin(
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    val id: Long,
 
     @field:NotEmpty val adminName: String,
 
@@ -21,7 +21,7 @@ data class Admin(
 
     @field:NotEmpty val adminEmailConfirm: String,
 
-    @field:NotEmpty val password: String,
+    @field:NotEmpty var password: String,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "event_id")
