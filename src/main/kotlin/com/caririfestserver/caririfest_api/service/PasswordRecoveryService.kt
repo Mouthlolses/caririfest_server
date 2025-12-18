@@ -21,7 +21,7 @@ class PasswordRecoveryService(
     fun requestReset(email: String) {
 
         val admin = adminRepository.findByAdminEmail(email)
-            ?: return  // silêncio total
+            ?: return
 
         val rawToken = UUID.randomUUID().toString()
 
