@@ -1,5 +1,6 @@
 package com.caririfestserver.caririfest_api.service
 
+import com.caririfestserver.caririfest_api.exceptions.domainExceptions.InvalidCredentialsException
 import com.caririfestserver.caririfest_api.extensions.admin.toResponse
 import com.caririfestserver.caririfest_api.model.admin.Admin
 import com.caririfestserver.caririfest_api.repository.AdminRepository
@@ -33,12 +34,12 @@ class AdminService(
 
     fun login(request: LoginRequest): LoginResponse {
         val admin = repository.findByAdminEmail(request.email)
-            ?: throw RuntimeException("Usuário não encontrado")
+            ?: throw InvalidCredentialsException()
 
         val passwordCorrect = passwordEncoder.matches(request.password, admin.password)
 
         if (!passwordCorrect) {
-            throw RuntimeException("Senha incorreta")
+            throw InvalidCredentialsException()
         }
 
         val token = jwtService.generateToken(admin)
