@@ -23,10 +23,12 @@ class PasswordRecoveryService(
         val admin = adminRepository.findByAdminEmail(email)
             ?: return
 
+        val adminId = admin.id ?: throw IllegalStateException("Admin sem ID, não pode gerar token de recuperação")
+
         val rawToken = UUID.randomUUID().toString()
 
         val token = PasswordResetToken(
-            adminId = admin.id,
+            adminId = adminId,
             tokenHash = passwordEncoder.encode(rawToken),
             expiresAt = LocalDateTime.now().plusMinutes(30),
             used = false

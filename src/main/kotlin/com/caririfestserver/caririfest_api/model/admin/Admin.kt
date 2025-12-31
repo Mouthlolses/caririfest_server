@@ -9,7 +9,7 @@ import jakarta.persistence.*
 data class Admin(
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    var id: Long? = null,
 
     @field:NotEmpty val adminName: String,
 

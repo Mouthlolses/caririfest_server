@@ -12,23 +12,30 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 class GlobalExceptionHandler {
 
     @ExceptionHandler(InvalidCredentialsException::class)
-    fun handleInvalidCredentials(ex: InvalidCredentialsException): ResponseEntity<ErrorResponse> {
-        return ResponseEntity
+    fun handleInvalidCredentials(ex: InvalidCredentialsException) =
+        ResponseEntity
             .status(HttpStatus.UNAUTHORIZED)
-            .body(ErrorResponse(message = ex.message!!))
-    }
+            .body(ErrorResponse(message = ex.message ?: "Credenciais inválidas"))
 
     @ExceptionHandler(UserBlockedException::class)
-    fun handleUserBlocked(ex: UserBlockedException): ResponseEntity<ErrorResponse> {
-        return ResponseEntity
+    fun handleUserBlocked(ex: UserBlockedException) =
+        ResponseEntity
             .status(HttpStatus.FORBIDDEN)
-            .body(ErrorResponse(message = ex.message!!))
-    }
+            .body(ErrorResponse(message = ex.message ?: "Usuário bloqueado"))
 
+    // Novo handler para erros 400 (como email mismatch)
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun handleBadRequest(ex: IllegalArgumentException) =
+        ResponseEntity
+            .status(HttpStatus.BAD_REQUEST)
+            .body(ErrorResponse(message = ex.message ?: "Requisição inválida"))
+
+    // Handler genérico seguro
     @ExceptionHandler(Exception::class)
-    fun handleGeneric(ex: Exception): ResponseEntity<ErrorResponse> {
-        return ResponseEntity
+    fun handleGeneric(ex: Exception) =
+        ResponseEntity
             .status(HttpStatus.INTERNAL_SERVER_ERROR)
             .body(ErrorResponse(message = "Erro interno no servidor"))
-    }
 }
+
+data class ErrorResponse(val message: String)

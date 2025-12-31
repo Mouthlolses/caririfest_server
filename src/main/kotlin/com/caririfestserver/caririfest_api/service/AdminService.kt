@@ -1,5 +1,6 @@
 package com.caririfestserver.caririfest_api.service
 
+import com.caririfestserver.caririfest_api.exceptions.domainExceptions.EmailMismatchException
 import com.caririfestserver.caririfest_api.exceptions.domainExceptions.InvalidCredentialsException
 import com.caririfestserver.caririfest_api.extensions.admin.toResponse
 import com.caririfestserver.caririfest_api.model.admin.Admin
@@ -20,6 +21,11 @@ class AdminService(
 
 
     fun createAdmin(request: AdminRequest): AdminResponse {
+
+        if (request.adminEmail != request.adminEmailConfirm) {
+            throw EmailMismatchException()
+        }
+
         val entity = Admin(
             adminName = request.adminName,
             adminLastName = request.adminLastName,

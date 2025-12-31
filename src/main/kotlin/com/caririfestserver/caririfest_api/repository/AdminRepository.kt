@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface AdminRepository : JpaRepository<Admin, Long> {
+
     fun findByAdminEmail(adminEmail: String): Admin?
 }

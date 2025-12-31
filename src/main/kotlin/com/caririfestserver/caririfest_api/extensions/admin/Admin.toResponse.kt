@@ -6,7 +6,7 @@ import com.caririfestserver.caririfest_api.response.AdminResponse
 
 fun Admin.toResponse(): AdminResponse {
     return AdminResponse(
-        id = this.id!!,
+        id = this.id,
         adminName = this.adminName,
         adminLastName = this.adminLastName,
         docAdmin = this.docAdmin,
