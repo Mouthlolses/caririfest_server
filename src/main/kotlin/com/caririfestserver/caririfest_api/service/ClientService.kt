@@ -1,7 +1,7 @@
 package com.caririfestserver.caririfest_api.service
 
 import com.caririfestserver.caririfest_api.extensions.client.toResponse
-import com.caririfestserver.caririfest_api.model.Client
+import com.caririfestserver.caririfest_api.model.client.Client
 import com.caririfestserver.caririfest_api.repository.ClientRepository
 import com.caririfestserver.caririfest_api.request.client.ClientRequest
 import com.caririfestserver.caririfest_api.response.ClientResponse

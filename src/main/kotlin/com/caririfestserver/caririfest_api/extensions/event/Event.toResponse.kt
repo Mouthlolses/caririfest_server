@@ -1,6 +1,6 @@
 package com.caririfestserver.caririfest_api.extensions.event
 
-import com.caririfestserver.caririfest_api.model.Event
+import com.caririfestserver.caririfest_api.model.event.Event
 import com.caririfestserver.caririfest_api.response.EventResponse
 
 

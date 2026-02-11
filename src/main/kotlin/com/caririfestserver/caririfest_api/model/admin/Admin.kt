@@ -1,7 +1,7 @@
 package com.caririfestserver.caririfest_api.model.admin
 
 import com.caririfestserver.caririfest_api.annotations.NotEmpty
-import com.caririfestserver.caririfest_api.model.Event
+import com.caririfestserver.caririfest_api.model.event.Event
 import jakarta.persistence.*
 
 @Entity

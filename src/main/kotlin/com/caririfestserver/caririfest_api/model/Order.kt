@@ -1,5 +1,7 @@
 package com.caririfestserver.caririfest_api.model
 
+import com.caririfestserver.caririfest_api.model.client.Client
+import com.caririfestserver.caririfest_api.model.event.Event
 import com.caririfestserver.caririfest_api.model.statusPayment.StatusPayment
 import jakarta.persistence.*
 import java.math.BigDecimal

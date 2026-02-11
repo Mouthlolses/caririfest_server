@@ -1,11 +1,13 @@
 package com.caririfestserver.caririfest_api.service
 
 import com.caririfestserver.caririfest_api.extensions.event.toResponse
-import com.caririfestserver.caririfest_api.model.Event
+import com.caririfestserver.caririfest_api.model.event.Event
 import com.caririfestserver.caririfest_api.repository.EventRepository
 import com.caririfestserver.caririfest_api.request.event.EventRequest
 import com.caririfestserver.caririfest_api.request.event.EventUpdateRequest
 import com.caririfestserver.caririfest_api.response.EventResponse
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 
 
@@ -55,8 +57,9 @@ class EventService(private val repository: EventRepository) {
         return repository.save(event)
     }
 
-    fun getAllEvents(): List<EventResponse> {
-        return repository.findAll()
+    fun getAllEvents(pageable: Pageable): Page<EventResponse> {
+        return repository
+            .findAll(pageable)
             .map { it.toResponse() }
     }
 

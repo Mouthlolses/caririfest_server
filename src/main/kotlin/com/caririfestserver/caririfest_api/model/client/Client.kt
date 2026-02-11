@@ -1,8 +1,16 @@
-package com.caririfestserver.caririfest_api.model
+package com.caririfestserver.caririfest_api.model.client
 
 import com.caririfestserver.caririfest_api.annotations.NotEmpty
-import jakarta.persistence.*
-
+import com.caririfestserver.caririfest_api.model.Notification
+import com.caririfestserver.caririfest_api.model.Order
+import com.caririfestserver.caririfest_api.model.Ticket
+import jakarta.persistence.CascadeType
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
+import jakarta.persistence.OneToMany
+import jakarta.persistence.Table
 
 /**Entidade que armazena os dados pessoais do comprador, necessária para comunicação e envio dos ingressos*/
 @Entity

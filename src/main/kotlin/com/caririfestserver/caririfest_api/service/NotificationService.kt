@@ -1,6 +1,6 @@
 package com.caririfestserver.caririfest_api.service
 
-import com.caririfestserver.caririfest_api.model.Client
+import com.caririfestserver.caririfest_api.model.client.Client
 import com.caririfestserver.caririfest_api.model.Notification
 import com.caririfestserver.caririfest_api.model.Ticket
 import com.caririfestserver.caririfest_api.model.canalType.CanalType

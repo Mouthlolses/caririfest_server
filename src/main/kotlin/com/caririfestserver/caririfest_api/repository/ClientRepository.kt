@@ -1,6 +1,6 @@
 package com.caririfestserver.caririfest_api.repository
 
-import com.caririfestserver.caririfest_api.model.Client
+import com.caririfestserver.caririfest_api.model.client.Client
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

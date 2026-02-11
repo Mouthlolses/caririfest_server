@@ -1,6 +1,7 @@
 package com.caririfestserver.caririfest_api.model
 
 import com.caririfestserver.caririfest_api.model.canalType.CanalType
+import com.caririfestserver.caririfest_api.model.client.Client
 import com.caririfestserver.caririfest_api.model.shippingStatus.ShippingStatus
 import jakarta.persistence.*
 import java.time.LocalDateTime

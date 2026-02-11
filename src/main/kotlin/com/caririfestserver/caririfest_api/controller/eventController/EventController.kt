@@ -7,8 +7,12 @@ import com.caririfestserver.caririfest_api.response.EventResponse
 import com.caririfestserver.caririfest_api.service.EventService
 import io.swagger.v3.oas.annotations.Operation
 import jakarta.validation.Valid
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.net.URI
 
 /**
  * O usuário precisa ver a lista de eventos.
@@ -28,9 +32,15 @@ import org.springframework.web.bind.annotation.*
 class EventController(private val eventService: EventService) {
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Criar evento", description = "Cria evento e retorna os dados dele")
-    fun createEvent(@Valid @RequestBody request: EventRequest): EventResponse {
-        return eventService.createEvent(request)
+    fun createEvent(@Valid @RequestBody request: EventRequest): ResponseEntity<EventResponse?>? {
+
+        val event = eventService.createEvent(request)
+
+        return ResponseEntity
+            .created(URI.create("/events/${event.id}"))
+            .body(event)
     }
 
     @GetMapping("/{id}")
@@ -41,8 +51,10 @@ class EventController(private val eventService: EventService) {
 
     @GetMapping
     @Operation(summary = "Lista todos os eventos", description = "Retorna uma lista com todos os eventos")
-    fun getAllEvents(): List<EventResponse> {
-        return eventService.getAllEvents()
+    fun getAllEvents(
+        pageable: Pageable
+    ): Page<EventResponse> {
+        return eventService.getAllEvents(pageable)
     }
 
     @PatchMapping("/{id}")

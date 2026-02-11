@@ -1,6 +1,6 @@
 package com.caririfestserver.caririfest_api.repository
 
-import com.caririfestserver.caririfest_api.model.Event
+import com.caririfestserver.caririfest_api.model.event.Event
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
