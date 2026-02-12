@@ -25,33 +25,33 @@ data class Event(
     val id: Long? = null,
 
     @Column(nullable = false, length = 150)
-    val title: String,
+    var title: String,
 
     @Column(nullable = false, length = 2000)
-    val description: String,
+    var description: String,
 
     // banner principal
     @Column(nullable = false)
-    val bannerUrl: String,
+    var bannerUrl: String,
 
     @Column(nullable = false, length = 150)
-    val locationName: String,
+    var locationName: String,
 
     // depois você pode evoluir pra lat/long
     @Column(length = 255)
-    val address: String? = null,
+    var address: String? = null,
 
     @Column(nullable = false)
-    val date: LocalDate,
+    var date: LocalDate,
 
     @Column(nullable = false)
-    val time: LocalTime,
+    var time: LocalTime,
 
     @Column(nullable = false, precision = 10, scale = 2)
-    val price: BigDecimal = BigDecimal.ZERO,
+    var price: BigDecimal = BigDecimal.ZERO,
 
     @Column(nullable = false)
-    val totalTickets: Int,
+    var totalTickets: Int,
 
     @Column(nullable = false)
     var ticketsAvailable: Int,
@@ -64,7 +64,7 @@ data class Event(
     // controle de ciclo de vida
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    val status: EventStatus = EventStatus.ACTIVE,
+    var status: EventStatus = EventStatus.ACTIVE,
 
     // auditoria (MUITO profissional ter isso)
     @Column(nullable = false, updatable = false)
