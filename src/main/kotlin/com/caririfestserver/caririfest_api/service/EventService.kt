@@ -7,6 +7,7 @@ import com.caririfestserver.caririfest_api.repository.EventRepository
 import com.caririfestserver.caririfest_api.request.event.EventRequest
 import com.caririfestserver.caririfest_api.request.event.EventUpdateRequest
 import com.caririfestserver.caririfest_api.response.EventResponse
+import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
@@ -69,7 +70,7 @@ class EventService(private val repository: EventRepository) {
             request.date?.let { date = it }
             request.time?.let { time = it }
             request.price?.let { price = it }
-            request.ticketsAvailable?.let { ticketsAvailable = it }
+            request.totalTickets?.let { totalTickets = it }
         }
 
         return repository.save(event)
@@ -89,10 +90,10 @@ class EventService(private val repository: EventRepository) {
     }
 
     fun deleteEventById(id: Long) {
-        if (!repository.existsById(id)) {
-            throw NoSuchElementException("Evento não encontrado pelo ID $id")
-        } else {
+        try {
             repository.deleteById(id)
+        } catch (ex: EmptyResultDataAccessException) {
+            throw NoSuchElementException("Evento não encontrado pelo ID $id")
         }
     }
 }

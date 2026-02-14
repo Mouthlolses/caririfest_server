@@ -13,5 +13,5 @@ data class EventUpdateRequest(
     val date: LocalDate? = null,
     val time: LocalTime? = null,
     val price: BigDecimal? = null,
-    val ticketsAvailable: Int? = null
+    val totalTickets: Int? = null
 )

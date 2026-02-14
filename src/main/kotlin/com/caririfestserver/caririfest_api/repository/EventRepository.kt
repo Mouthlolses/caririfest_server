@@ -18,4 +18,14 @@ interface EventRepository : JpaRepository<Event, Long> {}
  *
  * Mostrar detalhes do evento
  *
+ *
+ * Repository deve fazer:
+ *
+ * ✅ filtrar
+ * ✅ paginar
+ * ✅ contar
+ * ✅ verificar existência
+ * ✅ projetar dados
+ * ✅ ordenar
+ * ✅ agregar
  * */
