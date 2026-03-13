@@ -1,9 +1,9 @@
 package com.caririfestserver.caririfest_api.service
 
 import com.caririfestserver.caririfest_api.model.client.Client
-import com.caririfestserver.caririfest_api.model.Notification
-import com.caririfestserver.caririfest_api.model.Ticket
-import com.caririfestserver.caririfest_api.model.canalType.CanalType
+import com.caririfestserver.caririfest_api.model.notification.Notification
+import com.caririfestserver.caririfest_api.tickets.model.Ticket
+import com.caririfestserver.caririfest_api.model.notification.canalType.CanalType
 import com.caririfestserver.caririfest_api.model.shippingStatus.ShippingStatus
 import com.caririfestserver.caririfest_api.repository.NotificationRepository
 import org.springframework.stereotype.Service

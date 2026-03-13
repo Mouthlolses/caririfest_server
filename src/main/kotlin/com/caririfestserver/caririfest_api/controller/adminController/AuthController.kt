@@ -5,7 +5,6 @@ import com.caririfestserver.caririfest_api.request.admin.login.LoginResponse
 import com.caririfestserver.caririfest_api.request.admin.recovery.ForgotPasswordRequest
 import com.caririfestserver.caririfest_api.request.admin.recovery.ResetPasswordRequest
 import com.caririfestserver.caririfest_api.response.MessageResponse
-import com.caririfestserver.caririfest_api.service.AdminService
 import com.caririfestserver.caririfest_api.service.PasswordRecoveryService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody

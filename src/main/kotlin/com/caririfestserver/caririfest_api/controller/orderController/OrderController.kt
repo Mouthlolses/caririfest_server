@@ -3,7 +3,6 @@ package com.caririfestserver.caririfest_api.controller.orderController
 import com.caririfestserver.caririfest_api.request.order.OrderRequest
 import com.caririfestserver.caririfest_api.request.order.UpdateOrderStatusRequest
 import com.caririfestserver.caririfest_api.response.OrderResponse
-import com.caririfestserver.caririfest_api.service.OrderService
 import io.swagger.v3.oas.annotations.Operation
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PatchMapping

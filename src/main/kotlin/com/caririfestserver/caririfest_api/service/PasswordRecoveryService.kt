@@ -2,8 +2,7 @@ package com.caririfestserver.caririfest_api.service
 
 import com.caririfestserver.caririfest_api.exceptions.domainExceptions.InvalidTokenException
 import com.caririfestserver.caririfest_api.exceptions.domainExceptions.TokenExpiredException
-import com.caririfestserver.caririfest_api.model.admin.PasswordResetToken
-import com.caririfestserver.caririfest_api.repository.AdminRepository
+import com.caririfestserver.caririfest_api.model.organizer.PasswordResetToken
 import com.caririfestserver.caririfest_api.repository.PasswordResetTokenRepository
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
