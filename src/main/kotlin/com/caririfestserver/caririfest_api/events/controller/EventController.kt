@@ -4,7 +4,6 @@ import com.caririfestserver.caririfest_api.events.dto.EventRequest
 import com.caririfestserver.caririfest_api.events.dto.EventResponse
 import com.caririfestserver.caririfest_api.events.model.EventStatus
 import com.caririfestserver.caririfest_api.events.service.EventService
-import com.caririfestserver.caririfest_api.request.event.EventUpdateRequest
 import jakarta.validation.Valid
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
@@ -64,7 +63,7 @@ class EventController(
     @PatchMapping("/{id}")
     fun updateEvent(
         @PathVariable id: Long,
-        @RequestBody request: EventUpdateRequest
+        @RequestBody request: EventRequest
     ): EventResponse {
         return eventService.updateEventPartial(id, request)
     }

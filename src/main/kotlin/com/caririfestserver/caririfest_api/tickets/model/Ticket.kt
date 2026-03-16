@@ -1,8 +1,8 @@
 package com.caririfestserver.caririfest_api.tickets.model
 
+import com.caririfestserver.caririfest_api.customers.model.Customer
 import com.caririfestserver.caririfest_api.events.model.Event
-import com.caririfestserver.caririfest_api.model.order.Order
-import com.caririfestserver.caririfest_api.users.model.User
+import com.caririfestserver.caririfest_api.order.model.Order
 import jakarta.persistence.*
 import java.time.Instant
 import java.util.UUID
@@ -15,36 +15,35 @@ data class Ticket(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 
-    /**Pedido que originou o ingresso*/
+    /** Pedido que originou o ingresso */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "order_id", nullable = false)
     val order: Order,
 
-    /**Evento ao qual o ingresso pertence*/
+    /** Evento ao qual o ingresso pertence */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "event_id")
+    @JoinColumn(name = "event_id", nullable = false)
     val event: Event,
 
-    /**Usuário dono do ingresso*/
+    /** Dono do ingresso */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    val user: User,
+    @JoinColumn(name = "customer_id", nullable = false)
+    val customer: Customer,
 
-    /**Tipo de ingresso (inteira, VIP, etc)*/
+    /** Tipo de ingresso (inteira, VIP, etc) */
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     val ticketType: TicketType,
 
-    /**Código único usado no QR Code*/
-    //Na hora de criar > UUID.randomUUID()
+    /** Código único usado no QR Code */
     @Column(unique = true, nullable = false, updatable = false)
     val accessCode: UUID,
 
-    /**Status do ingresso*/
+    /** Status do ingresso */
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     val status: TicketStatus,
 
-    /**Momento em que o ingresso foi utilizado*/
+    /** Momento em que o ingresso foi utilizado */
     val usedAt: Instant? = null
-
 )

@@ -1,4 +1,4 @@
-package com.caririfestserver.caririfest_api.users.dto
+package com.caririfestserver.caririfest_api.customers.dto
 
 data class UserResponse(
     val id: Long,

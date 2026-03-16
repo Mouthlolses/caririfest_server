@@ -1,7 +1,7 @@
-package com.caririfestserver.caririfest_api.users.mapper
+package com.caririfestserver.caririfest_api.customers.mapper
 
-import com.caririfestserver.caririfest_api.users.dto.UserResponse
-import com.caririfestserver.caririfest_api.users.model.User
+import com.caririfestserver.caririfest_api.customers.dto.UserResponse
+import com.caririfestserver.caririfest_api.customers.model.User
 
 fun User.toResponse(): UserResponse {
     return UserResponse(

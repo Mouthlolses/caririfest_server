@@ -1,7 +1,8 @@
 package com.caririfestserver.caririfest_api.events.model
 
+import com.caririfestserver.caririfest_api.admin.model.Admin
 import com.caririfestserver.caririfest_api.events.model.category.Category
-import com.caririfestserver.caririfest_api.model.order.Order
+import com.caririfestserver.caririfest_api.order.model.Order
 import com.caririfestserver.caririfest_api.tickets.model.Ticket
 import jakarta.persistence.*
 import java.math.BigDecimal
@@ -54,9 +55,15 @@ data class Event(
     @Column(nullable = false)
     var ticketsAvailable: Int,
 
+    /** Categoria do evento */
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "category_id")
     val category: Category,
+
+    /** Organizador do evento */
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "admin_id")
+    val admin: Admin,
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -67,9 +74,11 @@ data class Event(
 
     var updatedAt: Instant? = null,
 
+    /** Pedidos feitos para esse evento */
     @OneToMany(mappedBy = "event")
     val orders: MutableList<Order> = mutableListOf(),
 
+    /** Ingressos desse evento */
     @OneToMany(mappedBy = "event")
     val tickets: MutableList<Ticket> = mutableListOf()
 )

@@ -1,4 +1,4 @@
-package com.caririfestserver.caririfest_api.users.dto
+package com.caririfestserver.caririfest_api.customers.dto
 
 data class CreateUserRequest(
     val name: String,

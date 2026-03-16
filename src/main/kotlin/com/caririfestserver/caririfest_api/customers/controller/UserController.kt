@@ -1,11 +1,11 @@
-package com.caririfestserver.caririfest_api.users.controller
+package com.caririfestserver.caririfest_api.customers.controller
 
 import com.caririfestserver.caririfest_api.tickets.dto.TicketResponse
 import com.caririfestserver.caririfest_api.tickets.service.TicketService
-import com.caririfestserver.caririfest_api.users.dto.CreateUserRequest
-import com.caririfestserver.caririfest_api.users.dto.UserResponse
-import com.caririfestserver.caririfest_api.users.mapper.toResponse
-import com.caririfestserver.caririfest_api.users.service.UserService
+import com.caririfestserver.caririfest_api.customers.dto.CreateUserRequest
+import com.caririfestserver.caririfest_api.customers.dto.UserResponse
+import com.caririfestserver.caririfest_api.customers.mapper.toResponse
+import com.caririfestserver.caririfest_api.customers.service.UserService
 import io.swagger.v3.oas.annotations.Operation
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.*
@@ -55,7 +55,6 @@ class UserController(
     fun deleteUser(@PathVariable id: Long) {
         userService.deleteUser(id)
     }
-
 
     //tickets for user
     @GetMapping("/{id}/tickets")

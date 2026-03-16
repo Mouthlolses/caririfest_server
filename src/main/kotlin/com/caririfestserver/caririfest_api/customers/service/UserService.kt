@@ -1,9 +1,8 @@
-package com.caririfestserver.caririfest_api.users.service
+package com.caririfestserver.caririfest_api.customers.service
 
-import com.caririfestserver.caririfest_api.users.dto.CreateUserRequest
-import com.caririfestserver.caririfest_api.users.model.User
-import com.caririfestserver.caririfest_api.users.model.UserRole
-import com.caririfestserver.caririfest_api.users.repository.UserRepository
+import com.caririfestserver.caririfest_api.customers.dto.CreateUserRequest
+import com.caririfestserver.caririfest_api.customers.model.User
+import com.caririfestserver.caririfest_api.customers.repository.UserRepository
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 
@@ -38,7 +37,7 @@ class UserServiceImpl(
             doc = request.doc,
             email = request.email,
             whatsapp = request.whatsapp,
-            role = UserRole.CUSTOMER
+            role = CustomerRole.CUSTOMER
         )
 
         return userRepository.save(user)
@@ -53,7 +52,7 @@ class UserServiceImpl(
             email = request.email,
             whatsapp = request.whatsapp,
             password = passwordEncoder.encode(request.password),
-            role = UserRole.ORGANIZER
+            role = CustomerRole.ORGANIZER
         )
 
         return userRepository.save(user)
