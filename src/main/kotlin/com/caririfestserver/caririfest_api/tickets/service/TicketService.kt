@@ -5,6 +5,14 @@ import com.caririfestserver.caririfest_api.tickets.mapper.toResponse
 import com.caririfestserver.caririfest_api.tickets.repository.TicketRepository
 import org.springframework.stereotype.Service
 
+//valida disponibilidade
+//
+//reserva tickets
+//
+//libera se falhar
+//
+//gera após pagamento
+
 interface TicketService {
 
     fun getTicketsByUser(userId: Long): List<TicketResponse>

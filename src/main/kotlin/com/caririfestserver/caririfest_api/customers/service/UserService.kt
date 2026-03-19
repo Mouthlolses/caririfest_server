@@ -2,15 +2,18 @@ package com.caririfestserver.caririfest_api.customers.service
 
 import com.caririfestserver.caririfest_api.customers.dto.CreateUserRequest
 import com.caririfestserver.caririfest_api.customers.model.User
-import com.caririfestserver.caririfest_api.customers.repository.UserRepository
+import com.caririfestserver.caririfest_api.customers.repository.CustomerRepository
+import com.stripe.model.Customer
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 
+// cria ou busca customer
+
 interface UserService {
 
-    fun createCustomer(request: CreateUserRequest): User
+    fun createCustomer(request: CreateUserRequest): Customer
 
-    fun createOrganizer(request: CreateUserRequest): User
+    fun createOrganizer(request: CreateUserRequest): Customer
 
     fun findById(id: Long): User
 
@@ -25,7 +28,7 @@ interface UserService {
 
 @Service
 class UserServiceImpl(
-    private val userRepository: UserRepository,
+    private val userRepository: CustomerRepository,
     private val passwordEncoder: PasswordEncoder
 ) : UserService {
 

@@ -34,7 +34,8 @@ server:
     address: 0.0.0.0
 
 jwt:
-  secret: "9rbESShNNoM06SdUHQv68sRAa4HBkDcC0QlYO9cypVM="
+  secret: ${JWT_SECRET}
+  expiration: 3600000
 
 
 stripe:

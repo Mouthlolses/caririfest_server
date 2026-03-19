@@ -19,6 +19,9 @@ import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 import java.time.LocalDateTime
 
+
+// Representa a intenção de compra
+
 @Entity
 @Table(
     name = "orders",

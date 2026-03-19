@@ -33,7 +33,7 @@ data class Admin(
     val email: String,
 
     @Column(nullable = false)
-    val password: String,
+    var password: String,
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
